@@ -5,3 +5,11 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+#
+swastik = User.create(email: "swastik@aceteq.co", name: "Swastik", password: "hihello")
+akhil = User.create(email: "akhil@outlook.com", name: "Akhil", password: "hihello")
+
+10.times do
+  user = [swastik, akhil].sample
+  Project.create(name: "#{user.name}'s project", created_by: user)
+end

@@ -1,2 +1,9 @@
 <h3>Projects</h3>
 <small>There are a total of <%= @projects.size %> projects!</small>
+
+<% @projects.each do |project| %>
+  <p>
+  <%= project.name %>
+  created by
+  <%= project.created_by.name %>
+<%end%>
