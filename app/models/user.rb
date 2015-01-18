@@ -1,3 +1,4 @@
 class User < ActiveRecord::Base
-  has_many :projects
+  has_many :memberships
+  has_many :projects, :through => :memberships
 end
