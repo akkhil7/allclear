@@ -6,7 +6,7 @@ var App = React.createClass({
     if (projects.length === 0) {
       var projectView = <ProjectBlank />
     } else {
-      var projectView = <ProjectList />
+      var projectView = <ProjectList projects={projects} />
     }
 
     return (
