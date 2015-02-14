@@ -1,7 +1,5 @@
 source 'https://rubygems.org'
 
-gem 'bourbon'
-gem 'neat'
 gem 'devise'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.0'
@@ -48,3 +46,4 @@ end
 gem 'neat'
 gem 'bourbon'
 gem 'bitters'
+gem 'react-rails', '~> 1.0.0.pre', github: 'reactjs/react-rails'
