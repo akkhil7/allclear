@@ -1,9 +1,19 @@
-<h3>Projects</h3>
-<small>There are a total of <%= @projects.size %> projects!</small>
+<% if @projects.size == 0 %>
+  <div class="projects-blank">
+    <h3>There are no projects yet!</h3>
+    <p>That means you are either just getting started or have deleted everything.</p>
+    <button>Add a new project</button>
+  </div>
+<% else %>
+  <div class="projects-box">
+    <h3>Projects</h3>
+    <small>There are a total of <%= @projects.size %> projects!</small>
 
-<% @projects.each do |project| %>
-  <p>
-  <%= project.name %>
-  created by
-  <%= project.created_by.name %>
-<%end%>
+    <% @projects.each do |project| %>
+      <p>
+      <%= project.name %>
+      created by
+      <%= project.created_by.name %>
+    <%end%>
+  </div>
+<% end %>
