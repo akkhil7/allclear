@@ -15,7 +15,6 @@ var ProjectBlank = React.createClass({
     } else {
       var display = <button onClick={this.toggleAddingProject}>Add a new project</button>
     }
-
     return (
       <div className="projects-blank">
         <h3>There are no projects yet!</h3>
