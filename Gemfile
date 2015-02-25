@@ -1,4 +1,5 @@
 source 'https://rubygems.org'
+gem 'twitter-typeahead-rails', :git => "git://github.com/yourabi/twitter-typeahead-rails.git"
 gem 'haml'
 gem 'devise'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'

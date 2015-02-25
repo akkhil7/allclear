@@ -6,6 +6,7 @@ class ProjectsController < ApplicationController
   def create
     @project = Project.new(project_params)
     if @project.save
+      @user.projects << @project
       render json: @project, status: 200
     else
       render json: @project.errors, status: 422
