@@ -1,6 +1,9 @@
 source 'https://rubygems.org'
-gem 'twitter-typeahead-rails', :git => "git://github.com/yourabi/twitter-typeahead-rails.git"
-gem 'haml'
+group :development do
+  gem 'better_errors'
+  gem "binding_of_caller"
+end
+gem 'rails4-autocomplete'
 gem 'devise'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.0'

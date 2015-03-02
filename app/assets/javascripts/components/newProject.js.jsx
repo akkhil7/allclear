@@ -14,7 +14,8 @@ var NewProject = React.createClass({
         <input type="text" placeholder="Name your project" ref="name" />
 
         <button onClick={this.addProject}>Add this project</button>
-        <button className="white" onClick={this.props.cancel}>Cancel</button>
+        <button className="white" onClick={this.props.cancel}>Cancel</button> //on click, it accesses 
+        //cancel property of NewProject (which is in ProjectBlank - this initiates ToggleAddingProject)
       </div>
     );
   }

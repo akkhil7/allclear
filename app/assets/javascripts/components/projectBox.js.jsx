@@ -4,7 +4,7 @@ var ProjectBox = React.createClass({
     var url = "/projects/" + project.id;
     
     $.ajax({
-      type: "DELETE",
+      type: 'DELETE',
       url: url,
       success: function (response) {
         console.log(response)

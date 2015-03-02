@@ -4,9 +4,9 @@ var App = React.createClass({
     var projects = this.props.projects;
 
     if (projects.length === 0) {
-      var projectView = <ProjectBlank />
+      var projectView = <ProjectBlank /> //if no projects then render ProjectBlank component
     } else {
-      var projectView = <ProjectList projects={projects} />
+      var projectView = <ProjectList projects={projects} /> //pass down {projects} to ProjectList(list of all projects)
     }
 
     return (
