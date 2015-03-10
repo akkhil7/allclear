@@ -11,9 +11,10 @@ var ProjectBlank = React.createClass({
   render: function () {
     var isAdding = this.state.isAdding;
     if (isAdding) {
-      var display = <NewProject cancel={this.toggleAddingProject} /> // if true then display next step -> 
-      //Add button and Cancel button
-    } else {
+      var display = <NewProject cancel={this.toggleAddingProject} />  /*if true then display next step -> 
+      Add button and Cancel button. Sets the cancel property of NewProject */ 
+    }
+    else {
       var display = <button onClick={this.toggleAddingProject}>Add a new project</button> // o/w display add button
     }
     return (

@@ -10,6 +10,12 @@
 <body>
 <div class="sidebar">
  <logo> AllClear </logo>
+ <p>
+ <% if user_signed_in? %>
+         Welcome <%= current_user.username %>,  <%= link_to "Sign Out", destroy_user_session_path, :method => :delete %>
+ <% else %>
+          <%= link_to "Sign up", new_user_path %> or <%= link_to "Sign in", new_user_session_path %>
+ <% end %></p>
  </div>
  <div class="content">
 <% if notice %>
@@ -20,5 +26,6 @@
 <% end %>
 <%= yield %>
 </div>
+
 </body>
 </html>

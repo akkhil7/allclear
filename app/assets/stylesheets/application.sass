@@ -20,8 +20,14 @@ body
     font-size: 2.5em
     text-align: center
     color: white
+  p
+    +span-columns(4 of 4)
+    text-align: center
+    color: white
 .content
   +span-columns(8 of 12)
+  min-height: 100%
+  margin: 0
 .projects-box
   +span-columns(10 of 12)
   +shift(1)
@@ -40,6 +46,9 @@ body
 
   button
     margin: 0 10px 10px
+    +span-columns(4 of 8)
+    +shift(2)
+
 
 #wrapper
   +span-columns(12 of 12)

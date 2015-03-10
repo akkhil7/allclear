@@ -90,6 +90,8 @@ GEM
     execjs (2.2.2)
     globalid (0.3.0)
       activesupport (>= 4.1.0)
+    haml (4.0.6)
+      tilt
     hike (1.2.3)
     i18n (0.7.0)
     jbuilder (2.2.6)
@@ -136,8 +138,6 @@ GEM
       rails-deprecated_sanitizer (>= 1.0.1)
     rails-html-sanitizer (1.0.1)
       loofah (~> 2.0)
-    rails4-autocomplete (1.1.1)
-      rails (>= 3.0)
     railties (4.2.0)
       actionpack (= 4.2.0)
       activesupport (= 4.2.0)
@@ -200,11 +200,11 @@ DEPENDENCIES
   byebug
   coffee-rails (~> 4.1.0)
   devise
+  haml
   jbuilder (~> 2.0)
   jquery-rails
   neat
   rails (= 4.2.0)
-  rails4-autocomplete
   react-rails (~> 1.0.0.pre)!
   sass-rails (~> 5.0)
   sdoc (~> 0.4.0)

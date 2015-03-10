@@ -3,7 +3,7 @@ group :development do
   gem 'better_errors'
   gem "binding_of_caller"
 end
-gem 'rails4-autocomplete'
+gem 'haml'
 gem 'devise'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.0'
