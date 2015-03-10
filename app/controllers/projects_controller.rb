@@ -31,23 +31,14 @@ class ProjectsController < ApplicationController
   def update
     @project = Project.find(params[:id])
 
-    users = params[:project][:users].split(",")
-
-    users.each do |username|
-      user = User.find_by username: username
-      @project.users << user unless user.nil?
-    end
-
-    modified_params = project_params.except(:users)
-
-    @project.update_attributes(modified_params)
+    @project.update_attributes(project_params)
 
     render json: @project, status: 200
   end
 
     private
       def project_params
-        params.require(:project).permit(:name, :id, :users, :created_by_id)
+        params.require(:project).permit(:name, :id, :created_by_id, :user_ids => [])
       end
 
 end

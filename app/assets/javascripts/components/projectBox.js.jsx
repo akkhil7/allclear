@@ -16,10 +16,8 @@ var ProjectBox = React.createClass({
     var _this = this;
     var project = this.props.project;
     var url = "/projects/" + project.id;
-    project.users="";
     var username = this.refs.user.getDOMNode().value
-    project.users+=username
-    console.log(project)
+    project.users = username.indexOf(",") > -1 ? username.split(",") : [username]
 
     $.ajax({
       type: 'PUT',
