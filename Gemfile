@@ -54,3 +54,5 @@ gem 'neat'
 gem 'bourbon'
 gem 'bitters'
 gem 'react-rails', '~> 1.0.0.pre', github: 'reactjs/react-rails'
+
+gem 'rack-cors'
