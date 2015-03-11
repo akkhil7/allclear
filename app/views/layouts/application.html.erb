@@ -1,18 +1,21 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Issues</title>
+  <title>AllClear - Issue Tracking App</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag "autocomplete-rails.js" %>
   <%= csrf_meta_tags %>
 </head>
 <body>
+<div id="contentWrapper">
 <div class="sidebar">
  <logo> AllClear </logo>
- <p>
  <% if user_signed_in? %>
-         Welcome <%= current_user.username %>,  <%= link_to "Sign Out", destroy_user_session_path, :method => :delete %>
+ <div class="avatar">
+<%= image_tag current_user.gravatar_url(:size => 120) %>
+ </div>
+ <p>  Welcome <%= current_user.username %>,  <%= link_to "Sign Out", destroy_user_session_path, :method => :delete %>
  <% else %>
           <%= link_to "Sign up", new_user_path %> or <%= link_to "Sign in", new_user_session_path %>
  <% end %></p>
@@ -26,6 +29,6 @@
 <% end %>
 <%= yield %>
 </div>
-
+</div>
 </body>
 </html>

@@ -3,8 +3,11 @@ group :development do
   gem 'better_errors'
   gem "binding_of_caller"
 end
+
+gem 'underscore-rails'
 gem 'haml'
 gem 'devise'
+gem 'gravtastic'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.0'
 # Use sqlite3 as the database for Active Record

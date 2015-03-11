@@ -22,7 +22,6 @@ var App = React.createClass({
 
   render: function () {
     var projects = this.state.projects;
-
     if (projects.length === 0) {
       var projectView = <ProjectBlank /> //if no projects then render ProjectBlank component
     } else {

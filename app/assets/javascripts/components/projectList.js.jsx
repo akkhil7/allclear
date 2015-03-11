@@ -20,6 +20,7 @@ var ProjectList = React.createClass({
       data: { project : project },
       success: function (res) {
         _this.props.added(res);
+        console.log(res);
       },
       error: function (res) {
         console.log(res)
@@ -29,7 +30,7 @@ var ProjectList = React.createClass({
   }, 
 
   deleteProject: function(project) {
-    var projects = this.props.projects;
+    var projects = this.state.projects;
     var index = projects.indexOf(project);
     projects.splice(index,1);
     this.setState({
