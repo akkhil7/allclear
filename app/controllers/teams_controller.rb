@@ -1,15 +1,24 @@
 class TeamsController < ApplicationController
+  skip_before_filter  :verify_authenticity_token
+  def index
+    @teams_all = Team.all
+    @team = current_user.team
+    @friends = @team.users
+    render json: { teams: @team, friends: @friends }, status: 200
+  end
+
   def create
-    @team.member_ids.each do |member|
-      current_user.teams.build(:member_id => :id)
+    @team = current_user.team
+    @team.user_ids.each do |id|
+      user = User.find(id)
+      @team.users << user
     end
-    if @team.save
-      render json: @team, status: 200
-    else
-      render json: @team.errors, status: 422
+    @team.save!
+    render json: {team: @team}, status: 200
+  end
+
+  private
+    def team_params
+      params.require(:team).permit(:user_ids => [])
     end
-  end
-  def team_params
-    params.require(:team).permit(:member_ids => [])
-  end
 end

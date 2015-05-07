@@ -6,10 +6,8 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 #
-swastik = User.create(email: "swastik@aceteq.co", name: "Swastik", password: "hihello")
-akhil = User.create(email: "akhil@outlook.com", name: "Akhil", password: "hihello")
+User.create(id: 5, email: "akhilr94@gmail.com", username: "akhil")
+User.create(id: 6, email: "wowowowow@gmail.com", username: "hello")
+User.create(id: 7, email: "asdkaskdj@a.com", username: "helloozzz")
+User.create(id: 8, email: "wow@gmail.com", username: "HELLO")
 
-10.times do
-  user = [swastik, akhil].sample
-  Project.create(name: "#{user.name}'s project", created_by: user)
-end
