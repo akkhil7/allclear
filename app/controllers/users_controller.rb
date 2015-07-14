@@ -2,13 +2,13 @@ class UsersController < ApplicationController
   skip_before_filter  :verify_authenticity_token
   def index
     @users=User.all
-    render json: {users: @users}, status: 200
+    render json: @users, root: "users"
   end
 
   def new
   @user=User.new()
   end
-  
+
   def create
     @user = User.new(user_params)
     @team = Team.new()

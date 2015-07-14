@@ -1,10 +1,15 @@
 class TeamsController < ApplicationController
   skip_before_filter  :verify_authenticity_token
   def index
-    @teams_all = Team.all
+    @teams = Team.all
+
+    render json: { teams: @teams}, status: 200
+  end
+
+  def my_team
     @team = current_user.team
-    @friends = @team.users
-    render json: { teams: @team, friends: @friends }, status: 200
+    @members = @team.users
+    render json: { team: @team, members: @members }, status: 200
   end
 
   def create

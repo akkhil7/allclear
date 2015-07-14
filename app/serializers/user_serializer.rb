@@ -19,10 +19,6 @@
 #  last_name              :string
 #
 
-require 'test_helper'
-
-class UserTest < ActiveSupport::TestCase
-  # test "the truth" do
-  #   assert true
-  # end
+class UserSerializer < ActiveModel::Serializer
+  attributes :id, :username, :first_name, :email
 end

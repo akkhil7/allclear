@@ -15,16 +15,19 @@
 #  last_sign_in_ip        :string
 #  username               :string
 #  team_id                :integer
+#  first_name             :string
+#  last_name              :string
 #
 
 class User < ActiveRecord::Base
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   belongs_to :team
-  devise :database_authenticatable, 
+  devise :database_authenticatable,
          :recoverable, :rememberable, :trackable, :validatable
   has_many :memberships
   has_many :projects, :through => :memberships
   has_many :notifications
+  has_many :issues, :foreign_key => :assigned_to_id
 
 end

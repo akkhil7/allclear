@@ -34,13 +34,23 @@
 #
 
 Rails.application.routes.draw do
+  resources :posts
+
   devise_for :users, :controllers => { :registrations => 'users' }
-  
+
   resources :projects
-  resources :teams, only: [:index, :create, :destroy]
-  devise_scope :user do 
+  resources :teams, only: [:index, :create, :destroy] do
+    collection do
+      get :my_team
+    end
+  end
+
+  resources :issues, only: [:index, :create, :destroy]
+
+  devise_scope :user do
     get "/login" => "devise/sessions#new"
   end
+
   resources :users do
     collection do
       get :me

@@ -10,8 +10,6 @@
 #  title          :string
 #
 
-class Issue < ActiveRecord::Base
-  belongs_to :project
-  has_many :comments
-  belongs_to :assigned_to, class_name: 'User', foreign_key: :assigned_to_id
+class IssueSerializer < ActiveModel::Serializer
+  attributes :id
 end
