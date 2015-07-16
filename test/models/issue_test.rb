@@ -8,6 +8,7 @@
 #  project_id     :integer
 #  assigned_to_id :integer
 #  title          :string
+#  priority       :string
 #
 
 require 'test_helper'

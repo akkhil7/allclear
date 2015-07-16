@@ -3,7 +3,7 @@ class IssuesController < ApplicationController
   skip_before_filter  :verify_authenticity_token
   def index
     @issues=Issue.all
-    render json: {issues: @issues}, status: 200
+    render json: @issues, status: 200
   end
 
   def show

@@ -2,7 +2,7 @@ class UsersController < ApplicationController
   skip_before_filter  :verify_authenticity_token
   def index
     @users=User.all
-    render json: @users, root: "users"
+    render json: @users, status: 200
   end
 
   def new
@@ -26,9 +26,10 @@ class UsersController < ApplicationController
   end
 
   def me
-    @currentuser = current_user
-    render json: @currentuser, status: 200
+    @user = current_user
+    render json: @user, status: 200
   end
+
  private
   def user_params
     params.require(:user).permit(:username, :password, :email)

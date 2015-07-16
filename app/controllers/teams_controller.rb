@@ -3,7 +3,7 @@ class TeamsController < ApplicationController
   def index
     @teams = Team.all
 
-    render json: { teams: @teams}, status: 200
+    render json: @teams, status: 200
   end
 
   def my_team

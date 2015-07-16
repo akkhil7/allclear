@@ -8,8 +8,9 @@
 #  project_id     :integer
 #  assigned_to_id :integer
 #  title          :string
+#  priority       :string
 #
 
 class IssueSerializer < ActiveModel::Serializer
-  attributes :id
+  attributes :id, :title, :priority, :assigned_to, :project
 end

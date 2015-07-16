@@ -8,6 +8,7 @@
 #  project_id     :integer
 #  assigned_to_id :integer
 #  title          :string
+#  priority       :string
 #
 
 class Issue < ActiveRecord::Base

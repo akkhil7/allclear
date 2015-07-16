@@ -8,7 +8,7 @@ class ProjectsController < ApplicationController
     @projects = current_user.projects
     @users = User.all
 
-    render json: { projects: @projects }, status: 200
+    render json: @projects, status: 200
   end
 
   def show
@@ -55,7 +55,7 @@ class ProjectsController < ApplicationController
 
     private
       def project_params
-        
+
         # :user_ids is a convention in rails - since project has :id and user_ids as separate arguments, rails will understand that we are trying
         # to create a relationship. so, it will understand :user_ids is a plural of user_id containing many userids.
 

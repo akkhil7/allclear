@@ -10,5 +10,5 @@
 #
 
 class ProjectSerializer < ActiveModel::Serializer
-  attributes :id
+  attributes :id, :name, :created_by, :issues
 end

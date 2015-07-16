@@ -4,7 +4,7 @@ group :development do
   gem "binding_of_caller"
 end
 
-gem 'active_model_serializers', '= 0.9.3'
+gem 'active_model_serializers', '=0.9.3'
 gem 'bourbon'
 gem 'bitters'
 gem 'react-rails', '~> 1.0.0.pre', github: 'reactjs/react-rails'
