@@ -38,14 +38,14 @@ Rails.application.routes.draw do
 
   devise_for :users, :controllers => { :registrations => 'users' }
 
-  resources :projects
-  resources :teams, only: [:index, :create, :destroy] do
+  resources :projects, only: [:index, :create, :update, :show, :destroy]
+  resources :teams, only: [:index, :create, :update, :show, :destroy] do
     collection do
       get :my_team
     end
   end
 
-  resources :issues, only: [:index, :create, :destroy]
+  resources :issues, only: [:index, :create, :show, :update, :destroy]
 
   devise_scope :user do
     get "/login" => "devise/sessions#new"
