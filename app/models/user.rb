@@ -28,6 +28,7 @@ class User < ActiveRecord::Base
   has_many :memberships
   has_many :projects, :through => :memberships
   has_many :notifications
+  has_many :comments
   has_many :issues, :foreign_key => :assigned_to_id
 
 end
