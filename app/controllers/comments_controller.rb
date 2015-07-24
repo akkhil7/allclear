@@ -1,4 +1,6 @@
 class CommentsController < ApplicationController
+  skip_before_filter :verify_authenticity_token
+
   def index
     @comments = Comment.all
     render json: @comments, status: 200

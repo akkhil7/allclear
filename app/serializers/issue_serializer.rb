@@ -12,5 +12,5 @@
 #
 
 class IssueSerializer < ActiveModel::Serializer
-  attributes :id, :title, :priority, :assigned_to, :project_id
+  attributes :id, :title, :priority, :assigned_to, :project_id, :comments
 end

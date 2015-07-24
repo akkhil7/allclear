@@ -45,7 +45,11 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :issues, only: [:index, :create, :show, :update, :destroy]
+  resources :issues, only: [:index, :create, :show, :update, :destroy] do
+    member do
+      resources :comments
+    end
+  end
 
   devise_scope :user do
     get "/login" => "devise/sessions#new"
