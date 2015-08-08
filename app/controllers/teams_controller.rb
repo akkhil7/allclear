@@ -13,7 +13,7 @@ class TeamsController < ApplicationController
   end
 
   def create
-    @team = current_user.team
+    @team = Team.new(team_params)
     @team.user_ids.each do |id|
       user = User.find(id)
       @team.users << user
