@@ -11,14 +11,8 @@ class UsersController < ApplicationController
 
   def create
     @user = User.new(user_params)
-    @team = Team.new()
 
     if @user.save!
-      @team.user_id = @user.id
-      if @team.save!
-        @user.team_id = @team.id
-        @team.created_by_id = @user.id
-      end
       render json: @user, status: 200
     else
       render json: @user.errors, status: 422
@@ -32,7 +26,7 @@ class UsersController < ApplicationController
 
  private
   def user_params
-    params.require(:user).permit(:username, :password, :email)
+    params.require(:user).permit(:username, :password, :email, :first_name, :last_name)
   end
 end
 

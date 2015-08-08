@@ -31,4 +31,15 @@ class User < ActiveRecord::Base
   has_many :comments
   has_many :issues, :foreign_key => :assigned_to_id
 
+  after_save :assign_team
+
+  def assign_team
+    @team = Team.new()
+    @team.created_by_id = self.id
+    @team.user_id = self.id
+    if @team.save!
+      self.team_id = @team.id
+    end
+  end
+
 end
