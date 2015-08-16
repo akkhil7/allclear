@@ -31,7 +31,21 @@ class User < ActiveRecord::Base
   has_many :comments
   has_many :issues, :foreign_key => :assigned_to_id
 
-  after_save :assign_team
+  after_commit :assign_team!
+
+  validates :username, presence: true
+  validates :email, presence: true
+  validates :first_name, presence: true
+  validates :last_name, presence: true
+
+  after_create :update_access_token!
+
+  private
+
+  def update_access_token!
+    self.access_token = "#{self.id}:#{Devise.friendly_token}"
+    save
+  end
 
   def assign_team
     @team = Team.new()
@@ -40,6 +54,7 @@ class User < ActiveRecord::Base
     if @team.save!
       self.team_id = @team.id
     end
+
   end
 
 end
