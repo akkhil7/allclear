@@ -25,6 +25,7 @@ class TeamsController < ApplicationController
       render json: @team, status: 200
     else
       render json: @team.errors, status: 422
+    end
   end
 
   private

@@ -24,6 +24,14 @@ class UsersController < ApplicationController
     render json: @user, status: 200
   end
 
+
+  def token
+    User.all.each do |user|
+      @token << user.token
+    end
+    render json: @token, status:200
+  end
+
  private
   def user_params
     params.require(:user).permit(:username, :password, :email, :first_name, :last_name)

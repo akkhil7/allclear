@@ -17,11 +17,14 @@
 #  team_id                :integer
 #  first_name             :string
 #  last_name              :string
+#  access_token           :string
 #
 
 class User < ActiveRecord::Base
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
+  require 'securerandom'
+
   belongs_to :team
   devise :database_authenticatable,
          :recoverable, :rememberable, :trackable, :validatable
@@ -38,13 +41,13 @@ class User < ActiveRecord::Base
   validates :first_name, presence: true
   validates :last_name, presence: true
 
-  after_create :update_access_token!
+  before_create :update_access_token!
 
   private
 
   def update_access_token!
-    self.access_token = "#{self.id}:#{Devise.friendly_token}"
-    save
+    return if auth_token.present?
+    self.auth_token = SecureRandom.uuid.gsub(/\-/,'')
   end
 
   def assign_team

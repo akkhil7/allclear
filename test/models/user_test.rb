@@ -17,6 +17,7 @@
 #  team_id                :integer
 #  first_name             :string
 #  last_name              :string
+#  access_token           :string
 #
 
 require 'test_helper'
