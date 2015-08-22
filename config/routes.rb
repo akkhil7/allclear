@@ -51,6 +51,11 @@ Rails.application.routes.draw do
     end
   end
 
+  resources :tokens, only: :index do
+    collection do
+      post :verify
+    end
+  end
 
   devise_scope :user do
     get "/login" => "devise/sessions#new"
@@ -59,7 +64,6 @@ Rails.application.routes.draw do
   resources :users do
     collection do
       get :me
-      get :token
     end
   end
 end

@@ -1,5 +1,4 @@
 class UsersController < ApplicationController
-  skip_before_filter  :verify_authenticity_token
   def index
     @users=User.all
     render json: @users, status: 200
@@ -24,13 +23,6 @@ class UsersController < ApplicationController
     render json: @user, status: 200
   end
 
-
-  def token
-    User.all.each do |user|
-      @token << user.token
-    end
-    render json: @token, status:200
-  end
 
  private
   def user_params

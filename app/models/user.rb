@@ -34,7 +34,7 @@ class User < ActiveRecord::Base
   has_many :comments
   has_many :issues, :foreign_key => :assigned_to_id
 
-  after_commit :assign_team!
+  after_commit :assign_team
 
   validates :username, presence: true
   validates :email, presence: true
@@ -46,18 +46,19 @@ class User < ActiveRecord::Base
   private
 
   def update_access_token!
-    return if auth_token.present?
-    self.auth_token = SecureRandom.uuid.gsub(/\-/,'')
+    return if access_token.present?
+    self.access_token = SecureRandom.uuid.gsub(/\-/,'')
   end
 
   def assign_team
-    @team = Team.new()
-    @team.created_by_id = self.id
-    @team.user_id = self.id
-    if @team.save!
-      self.team_id = @team.id
+    if self.team_id.nil?
+      @team = Team.new()
+      @team.created_by_id = self.id
+      @team.user_id = self.id
+      if @team.save!
+        self.team_id = @team.id
+      end
     end
-
   end
 
 end
